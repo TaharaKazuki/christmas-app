@@ -1,8 +1,31 @@
-import React from 'react'
 import '../styles/App.scss'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+import Main from './Main'
+import Quiz from './Quiz'
+import Result from './Result'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Main />,
+  },
+  {
+    path: '/quiz',
+    element: <Quiz />,
+  },
+  {
+    path: '/result',
+    element: <Result />,
+  },
+])
 
 function App() {
-  return <div className="App">React app</div>
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  )
 }
 
 export default App
