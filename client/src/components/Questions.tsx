@@ -1,20 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { data } from '../database/data'
 
 const Questions = () => {
   const [checked, setChecked] = useState<boolean | undefined>(undefined)
+
+  const question = data[0]
+
+  useEffect(() => {
+    console.info(question)
+  })
 
   const onSelect = () => {}
 
   return (
     <div className="questions">
-      <h2 className="text-light">問題1</h2>
-      <ul>
-        <li>
-          <input type="radio" value={1} id="q1-option" name="options" onChange={onSelect} />
-          <label className="text-primary" htmlFor="q1-option">
-            <div className="check checked" />
-          </label>
-        </li>
+      <h2 className="text-light">{question.question}</h2>
+      <ul key={question.id}>
+        {question.options.map((q, i) => (
+          <li key={i}>
+            <input
+              type="radio"
+              value={'false'}
+              id={`q${i}-option`}
+              name="options"
+              onChange={onSelect}
+            />
+            <label className="text-primary" htmlFor={`q${i}-option`}>
+              <div className="check" />
+            </label>
+          </li>
+        ))}
       </ul>
     </div>
   )
