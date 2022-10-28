@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layout from './Layout'
 import Questions from './Questions'
 
+import { useAppSelector } from '../redux/hook'
+
 const Quiz = () => {
+  const state = useAppSelector((state) => state)
+
+  useEffect(() => {
+    console.info(state)
+  })
+
   const onNext = () => {}
 
   const onPrev = () => {}
