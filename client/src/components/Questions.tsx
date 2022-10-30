@@ -19,9 +19,9 @@ const Questions = () => {
 
   return (
     <div className="questions">
-      <h2 className="text-light">{questions.question}</h2>
-      <ul key={questions.id}>
-        {questions.options.map((q, i) => (
+      <h2 className="text-light">{questions?.question}</h2>
+      <ul key={questions?.id}>
+        {questions?.options.map((q, i) => (
           <li key={i}>
             <input
               type="radio"
@@ -31,8 +31,9 @@ const Questions = () => {
               onChange={onSelect}
             />
             <label className="text-primary" htmlFor={`q${i}-option`}>
-              <div className="check" />
+              {q}
             </label>
+            <div className="check" />
           </li>
         ))}
       </ul>

@@ -1,8 +1,8 @@
 export const data = [
   {
     id: 1,
-    question: 'Javascript is an _______ language',
-    options: ['Object-Oriented', 'Object-Based', 'Procedural'],
+    question: 'あああ',
+    options: ['森の仲間達', 'Object-Based', 'Procedural'],
   },
   {
     id: 2,
