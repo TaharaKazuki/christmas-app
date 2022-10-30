@@ -1,6 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { DataType } from '../../database/type'
 
-const initialState = {
+type InitStateType = {
+  queue: DataType
+  answers: Array<any>
+  trace: number
+}
+
+const initialState: InitStateType = {
   queue: [],
   answers: [],
   trace: 0,

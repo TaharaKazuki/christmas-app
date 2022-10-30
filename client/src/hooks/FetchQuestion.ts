@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useAppDispatch } from '../redux/hook'
 import { data } from '../database/data'
+import { DataType } from '../database/type'
 
 import { startExamAction } from '../redux/reducers/question'
 
 type State = {
   isLoading: boolean
-  apiData: Array<any>
-  serverError: Error | null
+  apiData: DataType
+  serverError: string | null
 }
 
 export const useFetchQuestion = () => {
@@ -23,7 +24,7 @@ export const useFetchQuestion = () => {
     setGetData((prev) => ({ ...prev, isLoading: true }))
     ;(async () => {
       try {
-        let question = (await data) as Array<any>
+        let question = data
         if (question.length > 0) {
           setGetData((prev) => ({ ...prev, isLoading: false, apiData: question }))
           dispatch(startExamAction(question))
@@ -36,5 +37,5 @@ export const useFetchQuestion = () => {
     })()
   }, [dispatch])
 
-  return [getData, setGetData]
+  return [getData, setGetData] as const
 }
