@@ -1,10 +1,18 @@
 import { AppDispatch } from '../redux/store'
-import { pushResultAction } from '../redux/reducers/result'
+import { pushResultAction, updateResultActin } from '../redux/reducers/result'
 
-export const PushAnswer = (result: number) => async (dispatch: AppDispatch) => {
+export const pushAnswer = (result: number | undefined) => async (dispatch: AppDispatch) => {
   try {
     dispatch(pushResultAction(result))
   } catch (error) {
     console.info('error')
+  }
+}
+
+export const updateResult = (index: number) => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(updateResultActin(index))
+  } catch (error) {
+    console.info(error)
   }
 }

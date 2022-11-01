@@ -4,10 +4,17 @@ import { Link } from 'react-router-dom'
 
 import Layout from './Layout'
 import ResultTable from './ResultTable'
+import { useAppDispatch } from '../redux/hook'
+
+import { resetAllAction } from '../redux/reducers/question'
+import { resetResultAction } from '../redux/reducers/result'
 
 const Result = () => {
+  const dispatch = useAppDispatch()
+
   const onRestart = () => {
-    console.info('')
+    dispatch(resetAllAction())
+    dispatch(resetResultAction())
   }
 
   return (

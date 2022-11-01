@@ -1,18 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import type { FC } from 'react'
 import { useAppSelector } from '../redux/hook'
 import { useFetchQuestion } from '../hooks/FetchQuestion'
 
-const Questions = () => {
+type Props = {
+  onChecked: (i: number) => void
+}
+
+const Questions: FC<Props> = ({ onChecked }) => {
   const [checked, setChecked] = useState<boolean | undefined>(undefined)
   const [{ isLoading, apiData, serverError }] = useFetchQuestion()
 
   const questions = useAppSelector((state) => state.questions.queue[state.questions.trace])
 
-  useEffect(() => {
-    console.info(questions)
-  })
+  useEffect(() => {})
 
-  const onSelect = () => {}
+  const onSelect = (i: number) => {
+    onChecked(i)
+  }
 
   if (isLoading) return <h3 className="text-light">Loading</h3>
   if (serverError) return <h3 className="text-light">{serverError || 'Unknown Error'}</h3>
@@ -28,7 +33,7 @@ const Questions = () => {
               value={'false'}
               id={`q${i}-option`}
               name="options"
-              onChange={onSelect}
+              onChange={() => onSelect(i)}
             />
             <label className="text-primary" htmlFor={`q${i}-option`}>
               {q}
