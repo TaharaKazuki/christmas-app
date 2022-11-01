@@ -3,7 +3,8 @@ import { useAppDispatch } from '../redux/hook'
 import { data } from '../database/data'
 import { DataType } from '../database/type'
 
-import { startExamAction } from '../redux/reducers/question'
+import { startExamAction, moveNextAction, movePrevAction } from '../redux/reducers/question'
+import { AppDispatch } from '../redux/store'
 
 type State = {
   isLoading: boolean
@@ -38,4 +39,20 @@ export const useFetchQuestion = () => {
   }, [dispatch])
 
   return [getData, setGetData] as const
+}
+
+export const MoveNextQuestion = () => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(moveNextAction())
+  } catch (error) {
+    console.info(error)
+  }
+}
+
+export const MovePrevQuestion = () => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(movePrevAction())
+  } catch (error) {
+    console.info(error)
+  }
 }

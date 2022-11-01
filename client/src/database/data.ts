@@ -1,27 +1,52 @@
 export const data = [
   {
     id: 1,
-    question: 'あああ',
-    options: ['森の仲間達', 'Object-Based', 'Procedural'],
+    question: '問題1',
+    options: ['551の蓬莱', 'ルピシアのアイス', 'デメルクッキー', 'みろくやのちゃんぽん'],
   },
   {
     id: 2,
-    question: 'Following methods can be used to display data in some form using Javascript',
-    options: ['document.write()', 'console.log()', 'window.alert()'],
+    question: '問題2',
+    options: ['551の蓬莱', 'ルピシアのアイス', 'デメルクッキー', 'みろくやのちゃんぽん'],
   },
   {
     id: 3,
-    question: 'When an operator value is NULL, the typeof returned by the unary operator is:',
-    options: ['Boolean', 'Undefined', 'Object'],
+    question: 'スプラッシュマウンテンはなににちなんだ名称でしょう？',
+    options: ['551の蓬莱', 'ルピシアのアイス', 'デメルクッキー', 'みろくやのちゃんぽん'],
   },
   {
     id: 4,
-    question: 'What does the toString() method return?',
-    options: ['Return Object', 'Return String', 'Return Integer'],
+    question: '問題4',
+    options: ['551の蓬莱', 'ルピシアのアイス', 'デメルクッキー', 'みろくやのちゃんぽん'],
   },
   {
     id: 5,
-    question: 'Which function is used to serialize an object into a JSON string?',
-    options: ['stringify()', 'parse()', 'convert()'],
+    question: '問題5',
+    options: ['551の蓬莱', 'ルピシアのアイス', 'デメルクッキー', 'みろくやのちゃんぽん'],
+  },
+  {
+    id: 6,
+    question: '問題6',
+    options: ['551の蓬莱', 'ルピシアのアイス', 'デメルクッキー', 'みろくやのちゃんぽん'],
+  },
+  {
+    id: 7,
+    question: '問題7',
+    options: ['551の蓬莱', 'ルピシアのアイス', 'デメルクッキー', 'みろくやのちゃんぽん'],
+  },
+  {
+    id: 8,
+    question: '問題8',
+    options: ['551の蓬莱', 'ルピシアのアイス', 'デメルクッキー', 'みろくやのちゃんぽん'],
+  },
+  {
+    id: 9,
+    question: '問題9',
+    options: ['551の蓬莱', 'ルピシアのアイス', 'デメルクッキー', 'みろくやのちゃんぽん'],
+  },
+  {
+    id: 10,
+    question: '問題10',
+    options: ['551の蓬莱', 'ルピシアのアイス', 'デメルクッキー', 'みろくやのちゃんぽん'],
   },
 ]

@@ -1,19 +1,31 @@
 import React, { useEffect } from 'react'
 import Layout from './Layout'
 import Questions from './Questions'
+import { MoveNextQuestion, MovePrevQuestion } from '../hooks/FetchQuestion'
+import { PushAnswer } from '../hooks/setResult'
 
-import { useAppSelector } from '../redux/hook'
+import { useAppSelector, useAppDispatch } from '../redux/hook'
 
 const Quiz = () => {
-  const state = useAppSelector((state) => state)
+  const dispatch = useAppDispatch()
+  const { queue, trace } = useAppSelector((state) => state.questions)
 
   useEffect(() => {
-    console.info(state)
+    console.info(trace)
   })
 
-  const onNext = () => {}
+  const onNext = () => {
+    if (trace < queue.length) {
+      dispatch(MoveNextQuestion())
+      dispatch(PushAnswer(1))
+    }
+  }
 
-  const onPrev = () => {}
+  const onPrev = () => {
+    if (trace > 0) {
+      dispatch(MovePrevQuestion())
+    }
+  }
 
   return (
     <Layout>
