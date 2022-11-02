@@ -15,10 +15,6 @@ const Quiz = () => {
 
   const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    // console.info(result)
-  })
-
   const onNext = () => {
     if (trace < queue.length) {
       dispatch(MoveNextQuestion())
@@ -27,6 +23,7 @@ const Quiz = () => {
         dispatch(pushAnswer(check))
       }
     }
+    setChecked(undefined)
   }
 
   const onPrev = () => {
@@ -47,9 +44,16 @@ const Quiz = () => {
     <Layout>
       <Questions onChecked={onChecked} />
       <div className="grid">
-        <button className="btn prev" onClick={onPrev}>
+        {/* <button className="btn prev" onClick={onPrev}>
           Prev
-        </button>
+        </button> */}
+        {trace > 0 ? (
+          <button className="btn prev" onClick={onPrev}>
+            次へ
+          </button>
+        ) : (
+          <></>
+        )}
         <button className="btn next" onClick={onNext}>
           Next
         </button>

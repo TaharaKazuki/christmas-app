@@ -1,10 +1,10 @@
-import React from 'react'
+import { useEffect } from 'react'
 import '../styles/Result.scss'
 import { Link } from 'react-router-dom'
 
 import Layout from './Layout'
 import ResultTable from './ResultTable'
-import { useAppDispatch } from '../redux/hook'
+import { useAppDispatch, useAppSelector } from '../redux/hook'
 
 import { resetAllAction } from '../redux/reducers/question'
 import { resetResultAction } from '../redux/reducers/result'
