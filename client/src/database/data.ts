@@ -50,3 +50,5 @@ export const data = [
     options: ['551の蓬莱', 'ルピシアのアイス', 'デメルクッキー', 'みろくやのちゃんぽん'],
   },
 ]
+
+export const answers = [0, 1, 3, 1, 3, 3, 2, 1, 0, 0]
