@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import data from '../database/data'
 
 const Questions = () => {
   const [checked, setChecked] = useState<string | undefined>(undefined)
+
+  const question = data[0]
 
   const onSelect = () => {
     setChecked('true')
@@ -9,11 +12,23 @@ const Questions = () => {
 
   return (
     <div className="questions">
-      <h2 className="text-light">Simple Question1</h2>
-      <ul>
-        <li>
-          <input type="radio" value={checked} name="options" id="q1-option" onChange={onSelect} />
-        </li>
+      <h2 className="text-light">{question.question}</h2>
+      <ul key={question.id}>
+        {question.options.map((q, i) => (
+          <li key={i}>
+            <input
+              type="radio"
+              value={checked}
+              name="options"
+              id={`q${i}-option`}
+              onChange={onSelect}
+            />
+            <label className="text-primary" htmlFor={`q${i}-option`}>
+              {q}
+            </label>
+            <div className="check checked"></div>
+          </li>
+        ))}
       </ul>
     </div>
   )
