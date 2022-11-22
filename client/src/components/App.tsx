@@ -1,18 +1,22 @@
 import '../styles/App.scss'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
+import Main from './Main'
+import Quiz from './Quiz'
+import Result from './Result'
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>H</div>,
+    element: <Main />,
   },
   {
     path: '/quiz',
-    element: <div>H</div>,
+    element: <Quiz />,
   },
   {
     path: '/result',
-    element: <div>H</div>,
+    element: <Result />,
   },
 ])
 
