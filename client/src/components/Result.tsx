@@ -1,5 +1,6 @@
 import React from 'react'
 import PageLayout from './common/PageLayout'
+import ResultTable from './ResultTable'
 import '../styles/Result.scss'
 import { Link } from 'react-router-dom'
 
@@ -35,6 +36,10 @@ const Result = () => {
         <Link className="btn" to={'/'} onClick={onReset}>
           再挑戦
         </Link>
+      </div>
+
+      <div className="container">
+        <ResultTable />
       </div>
     </PageLayout>
   )
