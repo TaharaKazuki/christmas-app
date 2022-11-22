@@ -1,7 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+import data from '../database/data'
+export type apiDataType = typeof data
+
 type initialStateType = {
-  queue: Array<string>
+  queue: apiDataType
   answers: Array<string>
   trace: number
 }
@@ -16,7 +19,7 @@ export const questionSlice = createSlice({
   name: 'questions',
   initialState,
   reducers: {
-    startExamAction: (state, action: PayloadAction<Array<string>>) => {
+    startExamAction: (state, action: PayloadAction<apiDataType>) => {
       return {
         ...state,
         queue: action.payload,
