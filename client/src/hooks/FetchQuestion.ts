@@ -6,7 +6,7 @@ import data from '../database/data'
 import { startExamAction } from '../features/questionSlice'
 import type { apiDataType } from '../features/questionSlice'
 
-type getDataType = {
+export type getDataType = {
   isLoading: boolean
   apiData: apiDataType
   serverError: string | null
@@ -42,5 +42,5 @@ export const useFetchQuestion = () => {
     fetcherStart()
   }, [dispatch])
 
-  return [getData, setGetData]
+  return [getData, setGetData] as const
 }
