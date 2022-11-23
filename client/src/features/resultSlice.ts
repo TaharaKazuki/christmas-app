@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type initialStateType = {
-  userId: number | null
+  userId: string | null
   result: Array<number>
 }
 
@@ -14,7 +14,7 @@ export const resultSlice = createSlice({
   name: 'result',
   initialState,
   reducers: {
-    setUserId: (state, action: PayloadAction<number | null>) => {
+    setUserId: (state, action: PayloadAction<string | null>) => {
       state.userId = action.payload
     },
     pushResult: (state, action: PayloadAction<number>) => {

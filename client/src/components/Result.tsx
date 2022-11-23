@@ -31,7 +31,7 @@ const Result = () => {
       <div className="result flex-center">
         <div className="flex">
           <span>お名前：</span>
-          <span className="bold">Sample太郎</span>
+          <span className="bold">{userId}</span>
         </div>
         <div className="flex">
           <span>問題総得点：</span>
@@ -64,7 +64,9 @@ const Result = () => {
       </div>
 
       <div className="container">
-        <ResultTable attempts={attempts} earnPoint={earnPoints} flag={flag} />
+        {userId && (
+          <ResultTable userId={userId} attempts={attempts} earnPoint={earnPoints} flag={flag} />
+        )}
       </div>
     </PageLayout>
   )
