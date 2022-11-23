@@ -44,9 +44,14 @@ const Quiz = () => {
     <PageLayout>
       <Questions onChecked={onChecked} />
       <div className="grid">
-        <button className="btn prev" onClick={onPrev}>
-          前へ
-        </button>
+        {trace > 0 ? (
+          <button className="btn prev" onClick={onPrev}>
+            前へ
+          </button>
+        ) : (
+          <div></div>
+        )}
+
         <button className="btn next" onClick={onNext}>
           次へ
         </button>

@@ -11,6 +11,7 @@ const Questions: FC<Props> = ({ onChecked }) => {
   const dispatch = useAppDispatch()
   const [checked, setChecked] = useState<number | undefined>(undefined)
   const { trace } = useAppSelector((state) => state.questions)
+  const result = useAppSelector((state) => state.result.result)
   const [{ isLoading, apiData, serverError }] = useFetchQuestion()
 
   const questions = useAppSelector((state) => state.questions.queue[state.questions.trace])
@@ -46,7 +47,7 @@ const Questions: FC<Props> = ({ onChecked }) => {
                 <label className="text-primary" htmlFor={`q${i}-option`}>
                   {q}
                 </label>
-                <div className="check"></div>
+                <div className={`check ${result[trace] === i ? 'checked' : ''}`}></div>
               </li>
             ))}
           </ul>
