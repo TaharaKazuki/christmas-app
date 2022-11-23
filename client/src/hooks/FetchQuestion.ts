@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react'
 import { useAppDispatch } from '../app/hook'
 import data from '../database/data'
 
-import { startExamAction } from '../features/questionSlice'
+import { startExamAction, moveNextAction, movePrevAction } from '../features/questionSlice'
 import type { apiDataType } from '../features/questionSlice'
+import { AppDispatch } from '../app/store'
 
 export type getDataType = {
   isLoading: boolean
@@ -44,8 +45,18 @@ export const useFetchQuestion = () => {
   return [getData, setGetData] as const
 }
 
-export const MoveNextQuestion = () => async(dispatch) => {
-  try{
-    dispatch()
+export const MoveNextQuestion = () => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(moveNextAction())
+  } catch (error) {
+    console.info(error)
+  }
+}
+
+export const MovePrevQuestion = () => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(movePrevAction())
+  } catch (error) {
+    console.info(error)
   }
 }

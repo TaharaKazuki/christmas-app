@@ -1,22 +1,29 @@
 import { useEffect } from 'react'
-import { useAppSelector } from '../app/hook'
+import { useAppSelector, useAppDispatch } from '../app/hook'
+
+import { MoveNextQuestion, MovePrevQuestion } from '../hooks/FetchQuestion'
 
 import PageLayout from './common/PageLayout'
 import Questions from './Questions'
 
 const Quiz = () => {
-  const state = useAppSelector((state) => state)
+  const { queue, trace } = useAppSelector((state) => state.questions)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    // console.log(state)
-  }, [state])
+    console.log(trace)
+  }, [trace])
 
   const onNext = () => {
-    console.info('onNext')
+    if (trace < queue.length) {
+      dispatch(MoveNextQuestion())
+    }
   }
 
   const onPrev = () => {
-    console.info('onPrev')
+    if (trace > 0) {
+      dispatch(MovePrevQuestion())
+    }
   }
 
   return (
