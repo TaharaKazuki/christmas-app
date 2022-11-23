@@ -1,22 +1,28 @@
 import { FC, useEffect, useState } from 'react'
-import { useAppSelector } from '../app/hook'
+import { useAppSelector, useAppDispatch } from '../app/hook'
 import { useFetchQuestion } from '../hooks/FetchQuestion'
+import { updateAnswer } from '../hooks/SetResult'
 
 type Props = {
   onChecked: (checked: number) => void
 }
 
 const Questions: FC<Props> = ({ onChecked }) => {
-  const [checked, setChecked] = useState<string | undefined>(undefined)
+  const dispatch = useAppDispatch()
+  const [checked, setChecked] = useState<number | undefined>(undefined)
+  const { trace } = useAppSelector((state) => state.questions)
   const [{ isLoading, apiData, serverError }] = useFetchQuestion()
 
   const questions = useAppSelector((state) => state.questions.queue[state.questions.trace])
 
   useEffect(() => {
-    // console.info(questions)
-  })
+    dispatch(updateAnswer({ trace, checked: checked! }))
+  }, [trace, checked, dispatch])
 
-  const onSelect = (i: number) => onChecked(i)
+  const onSelect = (i: number) => {
+    onChecked(i)
+    setChecked(i)
+  }
 
   if (isLoading) return <h3 className="text-light">isLoading</h3>
   if (serverError) return <h3 className="text-light">{serverError || 'Unknown Error'}</h3>

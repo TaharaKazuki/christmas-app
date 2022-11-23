@@ -4,8 +4,17 @@ import ResultTable from './ResultTable'
 import '../styles/Result.scss'
 import { Link } from 'react-router-dom'
 
+import { resetAllAction } from '../features/questionSlice'
+import { resetResult } from '../features/resultSlice'
+import { useAppDispatch } from '../app/hook'
+
 const Result = () => {
-  const onReset = () => {}
+  const dispatch = useAppDispatch()
+
+  const onReset = () => {
+    dispatch(resetAllAction())
+    dispatch(resetResult())
+  }
 
   return (
     <PageLayout>

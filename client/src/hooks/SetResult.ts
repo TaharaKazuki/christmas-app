@@ -1,5 +1,5 @@
 import { AppDispatch } from '../app/store'
-import { pushResult } from '../features/resultSlice'
+import { pushResult, updateResult } from '../features/resultSlice'
 
 export const PushAnswer = (result: number) => async (dispatch: AppDispatch) => {
   try {
@@ -8,3 +8,12 @@ export const PushAnswer = (result: number) => async (dispatch: AppDispatch) => {
     console.info(error)
   }
 }
+
+export const updateAnswer =
+  (value: { trace: number; checked: number }) => async (dispatch: AppDispatch) => {
+    try {
+      dispatch(updateResult(value))
+    } catch (error) {
+      console.info(error)
+    }
+  }
