@@ -1,8 +1,8 @@
 const data = [
   {
     id: 1,
-    question: 'Javascript is an _______ language',
-    options: ['Object-Oriented', 'Object-Based', 'Procedural'],
+    question: 'xxxxxxxxxxxx',
+    options: ['A：11月11日', 'B：2月20日', 'C：7月10日', 'D：10月25日'],
   },
   {
     id: 2,
