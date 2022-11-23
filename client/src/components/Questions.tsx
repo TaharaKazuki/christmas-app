@@ -16,8 +16,9 @@ const Questions: FC<Props> = ({ onChecked }) => {
   const questions = useAppSelector((state) => state.questions.queue[state.questions.trace])
 
   useEffect(() => {
+    console.info(checked)
     dispatch(updateAnswer({ trace, checked: checked! }))
-  }, [trace, checked, dispatch])
+  }, [checked, dispatch, trace])
 
   const onSelect = (i: number) => {
     onChecked(i)
