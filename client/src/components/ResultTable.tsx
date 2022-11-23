@@ -1,4 +1,12 @@
-const ResultTable = () => {
+import type { FC } from 'react'
+
+type Props = {
+  attempts: number
+  earnPoint: number
+  flag: boolean
+}
+
+const ResultTable: FC<Props> = ({ attempts, earnPoint, flag }) => {
   return (
     <div>
       <table>
@@ -13,9 +21,9 @@ const ResultTable = () => {
         <tbody>
           <tr className="table-body">
             <td>Sample太郎</td>
-            <td>03</td>
-            <td>20</td>
-            <td>合格</td>
+            <td>{attempts}</td>
+            <td>{earnPoint}</td>
+            <td>{flag ? '合格' : '不合格'}</td>
           </tr>
         </tbody>
       </table>

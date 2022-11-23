@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { useAppDispatch } from '../app/hook'
-import data from '../database/data'
+import data, { answers } from '../database/data'
 
 import { startExamAction, moveNextAction, movePrevAction } from '../features/questionSlice'
 import type { apiDataType } from '../features/questionSlice'
@@ -31,7 +31,7 @@ export const useFetchQuestion = () => {
 
         if (question.length > 0) {
           setGetData((prev) => ({ ...prev, isLoading: false, apiData: question }))
-          dispatch(startExamAction(question))
+          dispatch(startExamAction({ queue: question, answers }))
         } else {
           throw new Error('No Question Available')
         }

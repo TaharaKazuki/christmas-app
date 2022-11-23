@@ -5,7 +5,7 @@ export type apiDataType = typeof data
 
 type initialStateType = {
   queue: apiDataType
-  answers: Array<string>
+  answers: Array<number>
   trace: number
 }
 
@@ -19,10 +19,12 @@ export const questionSlice = createSlice({
   name: 'questions',
   initialState,
   reducers: {
-    startExamAction: (state, action: PayloadAction<apiDataType>) => {
+    startExamAction: (state, action: PayloadAction<Omit<initialStateType, 'trace'>>) => {
+      const { queue, answers } = action.payload
       return {
         ...state,
-        queue: action.payload,
+        queue,
+        answers,
       }
     },
     moveNextAction: (state) => {
