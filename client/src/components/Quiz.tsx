@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useAppSelector, useAppDispatch } from '../app/hook'
 
 import { MoveNextQuestion, MovePrevQuestion } from '../hooks/FetchQuestion'
@@ -8,6 +8,8 @@ import PageLayout from './common/PageLayout'
 import Questions from './Questions'
 
 const Quiz = () => {
+  const [checked, setChecked] = useState<number | undefined>(undefined)
+
   const { queue, trace } = useAppSelector((state) => state.questions)
   const dispatch = useAppDispatch()
 
@@ -18,7 +20,7 @@ const Quiz = () => {
   const onNext = () => {
     if (trace < queue.length) {
       dispatch(MoveNextQuestion())
-      dispatch(PushAnswer(1))
+      dispatch(PushAnswer(checked!))
     }
   }
 
@@ -28,9 +30,11 @@ const Quiz = () => {
     }
   }
 
+  const onChecked = (checked: number) => setChecked(checked)
+
   return (
     <PageLayout>
-      <Questions />
+      <Questions onChecked={onChecked} />
       <div className="grid">
         <button className="btn prev" onClick={onPrev}>
           前へ
