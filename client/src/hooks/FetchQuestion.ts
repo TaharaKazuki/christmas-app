@@ -38,9 +38,14 @@ export const useFetchQuestion = () => {
         setGetData((prev) => ({ ...prev, isLoading: false, serverError: error }))
       }
     }
-
     fetcherStart()
   }, [dispatch])
 
   return [getData, setGetData] as const
+}
+
+export const MoveNextQuestion = () => async(dispatch) => {
+  try{
+    dispatch()
+  }
 }
