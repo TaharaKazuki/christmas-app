@@ -17,13 +17,13 @@ const Questions: FC<Props> = ({ onChecked }) => {
   const questions = useAppSelector((state) => state.questions.queue[state.questions.trace])
 
   useEffect(() => {
-    console.info(checked)
     dispatch(updateAnswer({ trace, checked: checked! }))
-  }, [checked, dispatch, trace])
+  }, [checked])
 
   const onSelect = (i: number) => {
     onChecked(i)
     setChecked(i)
+    dispatch(updateAnswer({ trace, checked: checked! }))
   }
 
   if (isLoading) return <h3 className="text-light">isLoading</h3>

@@ -15,10 +15,6 @@ const Quiz = () => {
   const { queue, trace } = useAppSelector((state) => state.questions)
   const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    // console.log(trace)
-  }, [trace])
-
   const onNext = () => {
     if (trace < queue.length) {
       dispatch(MoveNextQuestion())
@@ -26,6 +22,7 @@ const Quiz = () => {
         dispatch(PushAnswer(checked!))
       }
     }
+    setChecked(undefined)
   }
 
   const onPrev = () => {
