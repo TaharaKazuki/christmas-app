@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../app/hook'
 
 import { MoveNextQuestion, MovePrevQuestion } from '../hooks/FetchQuestion'
+import { PushAnswer } from '../hooks/SetResult'
 
 import PageLayout from './common/PageLayout'
 import Questions from './Questions'
@@ -17,6 +18,7 @@ const Quiz = () => {
   const onNext = () => {
     if (trace < queue.length) {
       dispatch(MoveNextQuestion())
+      dispatch(PushAnswer(1))
     }
   }
 
