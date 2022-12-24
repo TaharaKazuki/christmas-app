@@ -12,13 +12,13 @@ const Questions: FC<Props> = ({ onChecked }) => {
   const [checked, setChecked] = useState<number | undefined>(undefined)
   const { trace } = useAppSelector((state) => state.questions)
   const result = useAppSelector((state) => state.result.result)
-  const [{ isLoading, apiData, serverError }] = useFetchQuestion()
+  const [{ isLoading, serverError }] = useFetchQuestion()
 
   const questions = useAppSelector((state) => state.questions.queue[state.questions.trace])
 
   useEffect(() => {
     dispatch(updateAnswer({ trace, checked: checked! }))
-  }, [checked])
+  }, [checked, dispatch, trace])
 
   const onSelect = (i: number) => {
     onChecked(i)

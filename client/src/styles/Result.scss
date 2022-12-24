@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border: 1px solid #cecece;
+  border: 1px solid #ffffff;
   padding: 3em 4em;
   gap: 1em;
 }
@@ -12,7 +12,7 @@
   justify-content: space-between;
   span {
     font-size: 1.4em;
-    color: #cecece;
+    color: #ffffff;
     &.achiev {
       font-weight: bold;
       color: #ff2a66;
@@ -26,19 +26,19 @@ table {
 }
 
 .table-header {
-  color: #cecece;
+  color: #ffffff;
   font-size: 1.1em;
   text-align: center;
   background: #212121;
   padding: 18px 0;
   > tr > td {
-    border: 1px solid #faff5a;
+    border: 1px solid #c8ad6e;
   }
 }
 
 .table-body {
   font-size: 1.1em;
   text-align: center;
-  background: #d8d8d8;
+  background: #ffffff;
   padding: 18px 0;
 }
