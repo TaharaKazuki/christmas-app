@@ -1,6 +1,6 @@
 import React from 'react'
 import PageLayout from './common/PageLayout'
-import ResultTable from './ResultTable'
+// import ResultTable from './ResultTable'
 import '../styles/Result.scss'
 import { Link } from 'react-router-dom'
 
@@ -16,9 +16,9 @@ const Result = () => {
     result: { result, userId },
   } = useAppSelector((state) => state)
 
-  const totalPoints = queue.length * 10
+  const totalPoints = queue.length * 4
   const attempts = attemptNum(result)
-  const earnPoints = earnPointNum(result, answers, 10)
+  const earnPoints = earnPointNum(result, answers, 4)
   const flag = passFlagResult(totalPoints, earnPoints)
 
   const onReset = () => {
@@ -31,7 +31,7 @@ const Result = () => {
       <div className="result flex-center">
         <div className="flex">
           <span>お名前：</span>
-          <span className="bold">{userId}</span>
+          <span className="bold">{userId}さん</span>
         </div>
         <div className="flex">
           <span>問題総得点：</span>
@@ -51,23 +51,25 @@ const Result = () => {
         </div>
         <div className="flex">
           <span>最終結果</span>
-          <span style={{ color: `${flag ? '#2aff95' : '#ff2a66'}` }} className="bold">
-            {flag ? '合格' : '不合格'}
+          <span style={{ color: `${flag ? '#ffffff' : '#ffffff'}` }} className="bold">
+            {flag
+              ? 'おめでとうございます！！見事クリアです！！'
+              : 'しゃーなしやでwほんまおまけでクリアやww'}
           </span>
         </div>
       </div>
 
       <div className="start">
         <Link className="btn" to={'/'} onClick={onReset}>
-          再挑戦
+          再挑戦する
         </Link>
       </div>
 
-      <div className="container">
+      {/* <div className="container">
         {userId && (
           <ResultTable userId={userId} attempts={attempts} earnPoint={earnPoints} flag={flag} />
         )}
-      </div>
+      </div> */}
     </PageLayout>
   )
 }

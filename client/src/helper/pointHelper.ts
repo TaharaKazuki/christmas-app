@@ -11,5 +11,5 @@ export const earnPointNum = (result: number[], answers: number[], point: number)
 }
 
 export const passFlagResult = (totalPoints: number, earnPoints: number) => {
-  return (totalPoints * 50) / 100 < earnPoints
+  return (totalPoints * 90) / 100 < earnPoints
 }
