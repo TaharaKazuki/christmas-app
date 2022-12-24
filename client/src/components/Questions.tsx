@@ -33,7 +33,9 @@ const Questions: FC<Props> = ({ onChecked }) => {
     <>
       {questions && (
         <div className="questions">
-          <h2 className="text-light">{questions.question}</h2>
+          <h2 className="text-light">
+            <div>第{questions.id}問</div> {questions.question}
+          </h2>
           <ul key={questions.id}>
             {questions.options.map((q, i) => (
               <li key={i}>

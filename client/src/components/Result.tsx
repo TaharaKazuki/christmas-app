@@ -1,7 +1,7 @@
 import React from 'react'
 import PageLayout from './common/PageLayout'
-// import ResultTable from './ResultTable'
 import '../styles/Result.scss'
+
 import { Link } from 'react-router-dom'
 
 import { resetAllAction } from '../features/questionSlice'
@@ -54,9 +54,20 @@ const Result = () => {
           <span style={{ color: `${flag ? '#ffffff' : '#ffffff'}` }} className="bold">
             {flag
               ? 'おめでとうございます！！見事クリアです！！'
-              : 'しゃーなしやでwほんまおまけでクリアやww'}
+              : 'く、、クリア、、、と言っていいでしょう。。ぅぅ'}
           </span>
         </div>
+      </div>
+      <div>
+        <p className="info">
+          今年も残すところ僅かとなりましたがこうやって楽しいクリスマスを迎えられることを大変嬉しく思っています。
+          れなと一緒だから毎日がとても充実してあっという間の1年でした！
+          <br />
+          二人で迎えられるクリスマスはひとまず最後になりますが
+          来年は待望の👶が爆誕ッ！！となり一層賑やかな家族になっていくことを楽しみにしています！
+          大変なこともあるとは思いますが思い遣りながらともに助け合って幸せな毎日にしていきたいと思います！
+          今年もありがとう！！
+        </p>
       </div>
 
       <div className="start">
@@ -64,12 +75,6 @@ const Result = () => {
           再挑戦する
         </Link>
       </div>
-
-      {/* <div className="container">
-        {userId && (
-          <ResultTable userId={userId} attempts={attempts} earnPoint={earnPoints} flag={flag} />
-        )}
-      </div> */}
     </PageLayout>
   )
 }
